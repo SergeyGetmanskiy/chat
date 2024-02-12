@@ -1,6 +1,5 @@
 import React from 'react'
 import { CssBaseline } from '@mui/material'
-import './App.css'
 
 function App() {
 
