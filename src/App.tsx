@@ -1,13 +1,13 @@
 import React from 'react'
-import { CssBaseline } from '@mui/material'
+
+import image from './vendor/images/Forest.jpg'
 
 function App() {
 
   return (
-    <React.Fragment>
-      <CssBaseline />
-      {/* The rest of your application */}
-    </React.Fragment>
+
+      <img src={image}></img>
+
   )
 }
 
