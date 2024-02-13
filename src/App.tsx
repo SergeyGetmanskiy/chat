@@ -1,12 +1,16 @@
 import React from 'react'
+import { Routes, Route } from 'react-router-dom'
+import Signin from './pages/SignIn/Signin'
 
-import image from './vendor/images/Forest.jpg'
 
 function App() {
 
   return (
-
-      <img src={image}></img>
+    <div>
+      <Routes>
+        <Route path="/" element={<Signin />} />
+      </Routes>
+    </div>
 
   )
 }
