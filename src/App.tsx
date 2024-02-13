@@ -1,13 +1,17 @@
 import React from 'react'
-import { CssBaseline } from '@mui/material'
+import { Routes, Route } from 'react-router-dom'
+import Signin from './pages/SignIn/Signin'
+
 
 function App() {
 
   return (
-    <React.Fragment>
-      <CssBaseline />
-      {/* The rest of your application */}
-    </React.Fragment>
+    <div>
+      <Routes>
+        <Route path="/" element={<Signin />} />
+      </Routes>
+    </div>
+
   )
 }
 
