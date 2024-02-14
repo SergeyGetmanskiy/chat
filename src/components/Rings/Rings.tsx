@@ -1,4 +1,3 @@
-import React from 'react'
 import './Rings.css'
 
 function Rings({children}) {
