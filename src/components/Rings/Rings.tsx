@@ -5,6 +5,7 @@ function Rings({children}: {children: ReactNode}) {
 
 return (
   <div className='ring'>
+    {/* @ts-expect-error --clr variable does not exist in type 'Properties<string | number, string & {}>' */}
     <i style={{"--clr":"#00ff0a"}} />
     <i style={{"--clr":"#ff0057"}} />
     <i style={{"--clr":"#fffd44"}} />
