@@ -17,7 +17,7 @@ const backgroundStyles = {
 function Background({children}: {children: ReactNode}) {
 
   return (
-    <Container maxWidth={'1920px'} disableGutters sx={{margin: 0, overflow: 'hidden'}}>
+    <Container maxWidth={'false'} disableGutters sx={{margin: 0, overflow: 'hidden'}}>
       <div style={backgroundStyles}>
         <div>
           <FireFlies />
