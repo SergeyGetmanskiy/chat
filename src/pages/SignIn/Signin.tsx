@@ -1,4 +1,3 @@
-import React from 'react'
 import { Paper, Stack, TextField, Typography } from '@mui/material'
 import Background from '../../components/Background/Background'
 import Rings from '../../components/Rings/Rings'

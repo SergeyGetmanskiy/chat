@@ -1,4 +1,4 @@
-import React from 'react'
+import { ReactNode } from 'react'
 import { Container } from '@mui/material'
 
 import { main } from '../../constants/constants';
@@ -14,10 +14,10 @@ const backgroundStyles = {
   backgroundPosition: 'center',
 }
 
-function Background({children}) {
+function Background({children}: {children: ReactNode}) {
 
   return (
-    <Container maxWidth={'100vh'} disableGutters sx={{margin: 0, overflow: 'hidden'}}>
+    <Container maxWidth={false} disableGutters sx={{margin: 0, overflow: 'hidden'}}>
       <div style={backgroundStyles}>
         <div>
           <FireFlies />

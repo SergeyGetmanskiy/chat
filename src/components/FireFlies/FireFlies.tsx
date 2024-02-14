@@ -1,4 +1,3 @@
-import React from 'react'
 import './FireFlies.css'
 
 function FireFlies() {
