@@ -1,6 +1,7 @@
+import { ReactNode } from 'react'
 import './Rings.css'
 
-function Rings({children}) {
+function Rings({children}: {children: ReactNode}) {
 
 return (
   <div className='ring'>
