@@ -14,11 +14,11 @@ export const TextFieldElement = ({ type, name, control, label, required=false, m
         },
         minLength: {
           value: minLength,
-          message: `Длина должна быть не менее ${minLength} символов`
+          message: `Должно быть не менее ${minLength} символов`
         },
         maxLength: {
           value: maxLength,
-          message: `Длина должна быть не более ${maxLength} символов`
+          message: `Должно быть не более ${maxLength} символов`
         }
       }}
       render={({
