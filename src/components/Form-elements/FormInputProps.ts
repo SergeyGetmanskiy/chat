@@ -1,10 +1,11 @@
+import { Control, FieldValues } from "react-hook-form";
+
 export interface FormInputProps {
   type: string;
   name: string;
-  control: unknown;
+  control: Control<FieldValues>;
   label: string;
-  required: boolean;
-  minLength: number;
+  required?: boolean;
+  minLength?: number;
   maxLength?: number;
-  setValue?: unknown;
 }

@@ -1,14 +1,9 @@
 import { Paper, Stack, Typography, Button } from '@mui/material'
-import { useForm } from "react-hook-form"
+import { useForm, SubmitHandler, FieldValues } from "react-hook-form"
 
 import Background from '../../components/Background/Background'
 import Rings from '../../components/Rings/Rings'
 import { TextFieldElement } from '../../components/Form-elements/TextFieldElement'
-
-interface SignInFormInput {
-  username: string;
-  password: string;
-}
 
 const defaultValues = {
   username: "",
@@ -17,9 +12,9 @@ const defaultValues = {
 
 function Signin() {
 
-  const { control, handleSubmit } = useForm<FormInput>({defaultValues: defaultValues});
+  const { control, handleSubmit } = useForm<FieldValues>({defaultValues: defaultValues});
 
-  const onSubmit = (data: SignInFormInput) => {
+  const onSubmit: SubmitHandler<FieldValues> = (data) => {
     console.log(data);
   }
 

@@ -2,7 +2,7 @@ import { Controller } from "react-hook-form";
 import { TextField } from "@mui/material";
 import { FormInputProps } from "./FormInputProps";
 
-export const TextFieldElement = ({ type, name, control, label, required, minLength, maxLength }: FormInputProps) => {
+export const TextFieldElement = ({ type, name, control, label, required=false, minLength=0, maxLength=100 }: FormInputProps) => {
   return (
     <Controller
       name={name}
