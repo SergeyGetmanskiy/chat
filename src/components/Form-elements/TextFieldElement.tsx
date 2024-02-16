@@ -35,6 +35,7 @@ export const TextFieldElement = ({ type, name, control, label, required=false, m
           size="small"
           fullWidth
           variant="outlined"
+          sx={{mb: '10px'}}
         />
       )}
     />
