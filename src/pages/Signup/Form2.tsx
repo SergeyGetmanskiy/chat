@@ -1,30 +1,23 @@
-import { Paper, Stack, Typography, Button } from '@mui/material'
+import { Paper, Typography, Stack, Button } from "@mui/material"
+import { TextFieldElement } from "../../components/Form-elements/TextFieldElement"
 import { useForm, SubmitHandler, FieldValues } from "react-hook-form"
-
-import Background from '../../components/Background/Background'
-import Rings from '../../components/Rings/Rings'
-import { TextFieldElement } from '../../components/Form-elements/TextFieldElement'
 
 const defaultValues = {
   username: "",
   password: "",
 };
 
-function Signin() {
-
+function Form2() {
   const { control, handleSubmit } = useForm<FieldValues>({defaultValues: defaultValues});
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     console.log(data);
   }
-
   return (
-    <Background>
-      <Stack sx={{display: 'flex', height: '100%', alignItems: 'center', justifyContent: 'center'}}>
-        <Rings>
-          <Paper component={'form'} onSubmit={handleSubmit(onSubmit)} elevation={12} sx={{display: 'flex', flexDirection: 'column', maxWidth: '300px', rowGap: '10px', p: '30px'}}>
+    <div>
+      <Paper component={'form'} onSubmit={handleSubmit(onSubmit)} elevation={12} sx={{display: 'flex', flexDirection: 'column', maxWidth: '300px', rowGap: '10px', p: '30px'}}>
             <Typography align='center' variant='h4'>
-              Вход
+              Форма 2
             </Typography>
             <Stack direction={'column'}>
               <TextFieldElement
@@ -51,10 +44,8 @@ function Signin() {
             <Typography align='center' sx={{mt: '10px'}}>Ещё не зарегистрированы?</Typography>
             <Button href='/signup' color='secondary'>Зарегистрироваться</Button>
           </Paper>
-        </Rings>
-      </Stack>
-    </Background>
+    </div>
   )
 }
 
-export default Signin
+export default Form2
