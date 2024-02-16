@@ -1,4 +1,4 @@
-import {useState, Fragment} from 'react';
+import {useState, Fragment, Dispatch, SetStateAction, ReactNode} from 'react';
 import Box from '@mui/material/Box';
 import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
@@ -7,7 +7,14 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Stack } from '@mui/material';
 
-export default function StepperElement({activeStep, setActiveStep, steps, form}) {
+interface StepperElementProps {
+  activeStep: number;
+  setActiveStep: Dispatch<SetStateAction<number>>;
+  steps: string[];
+  form: ReactNode;
+}
+
+export default function StepperElement({activeStep, setActiveStep, steps, form}: StepperElementProps) {
 
   const [skipped, setSkipped] = useState(new Set<number>());
 

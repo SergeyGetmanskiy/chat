@@ -26,7 +26,7 @@ function Signup() {
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     console.log(data);
   } */
-  const renderForm = (step) => {
+  const renderForm = (step: number) => {
     if (step === 1) {
       return <Form1 />
     } else if (step === 2) {
