@@ -1,4 +1,4 @@
-import { Paper, Typography, Stack, Button } from "@mui/material"
+import { Paper, Typography, Stack } from "@mui/material"
 import { TextFieldElement } from "../../components/Form-elements/TextFieldElement"
 import { useForm, SubmitHandler, FieldValues } from "react-hook-form"
 
@@ -37,12 +37,7 @@ function Form2() {
                 required={true}
                 minLength={6}
               />
-              <Button type={'submit'} variant={'contained'} color={'secondary'}>
-                Войти
-              </Button>
             </Stack>
-            <Typography align='center' sx={{mt: '10px'}}>Ещё не зарегистрированы?</Typography>
-            <Button href='/signup' color='secondary'>Зарегистрироваться</Button>
           </Paper>
     </div>
   )
