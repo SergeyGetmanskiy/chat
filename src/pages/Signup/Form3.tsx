@@ -15,7 +15,7 @@ function Form3() {
   }
   return (
     <div>
-      <Paper component={'form'} onSubmit={handleSubmit(onSubmit)} elevation={12} sx={{display: 'flex', flexDirection: 'column', maxWidth: '300px', rowGap: '10px', p: '30px'}}>
+      <Paper onSubmit={handleSubmit(onSubmit)} elevation={12} sx={{display: 'flex', flexDirection: 'column', maxWidth: '300px', rowGap: '10px', p: '30px'}}>
             <Typography align='center' variant='h4'>
               Форма 3
             </Typography>

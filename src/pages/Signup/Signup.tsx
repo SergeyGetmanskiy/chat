@@ -2,13 +2,13 @@ import { useState } from 'react'
 import { Paper, Stack, Typography } from '@mui/material'
 //import { useForm, SubmitHandler, FieldValues } from "react-hook-form"
 
-import Background from '../../components/Background/Background'
 import StepperElement from '../../components/StepperElement/StepperElement'
 // import { TextFieldElement } from '../../components/Form-elements/TextFieldElement'
 import Form1 from './Form1'
 import Form2 from './Form2'
 import Form3 from './Form3'
 import Form4 from './Form4'
+import Background from '../../components/Background/Background'
 
 /*
 const defaultValues = {

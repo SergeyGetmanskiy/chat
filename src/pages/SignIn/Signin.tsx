@@ -1,9 +1,10 @@
 import { Paper, Stack, Typography, Button } from '@mui/material'
 import { useForm, SubmitHandler, FieldValues } from "react-hook-form"
 
-import Background from '../../components/Background/Background'
 import Rings from '../../components/Rings/Rings'
 import { TextFieldElement } from '../../components/Form-elements/TextFieldElement'
+import { useNavigate } from 'react-router-dom';
+import Background from '../../components/Background/Background';
 
 const defaultValues = {
   username: "",
@@ -11,6 +12,8 @@ const defaultValues = {
 };
 
 function Signin() {
+
+  const navigate = useNavigate();
 
   const { control, handleSubmit } = useForm<FieldValues>({defaultValues: defaultValues});
 
@@ -49,7 +52,7 @@ function Signin() {
               </Button>
             </Stack>
             <Typography align='center' sx={{mt: '10px'}}>Ещё не зарегистрированы?</Typography>
-            <Button href='/signup' color='secondary'>Зарегистрироваться</Button>
+            <Button onClick={() => navigate('/signup')} color='secondary'>Зарегистрироваться</Button>
           </Paper>
         </Rings>
       </Stack>
