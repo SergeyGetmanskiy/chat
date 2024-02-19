@@ -1,4 +1,5 @@
 import {useState, Fragment, Dispatch, SetStateAction, ReactNode} from 'react';
+import {UseFormReset, FieldValues} from 'react-hook-form'
 import Box from '@mui/material/Box';
 import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
@@ -12,9 +13,11 @@ interface StepperElementProps {
   setActiveStep: Dispatch<SetStateAction<number>>;
   steps: string[];
   form: ReactNode;
+  reset: UseFormReset<FieldValues>;
+  disabled: boolean;
 }
 
-export default function StepperElement({activeStep, setActiveStep, steps, form}: StepperElementProps) {
+export default function StepperElement({activeStep, setActiveStep, steps, form, reset, disabled}: StepperElementProps) {
 
   const [skipped, setSkipped] = useState(new Set<number>());
 
@@ -58,6 +61,7 @@ export default function StepperElement({activeStep, setActiveStep, steps, form}:
 
   const handleReset = () => {
     setActiveStep(0);
+    reset();
   };
 
   return (
@@ -86,11 +90,11 @@ export default function StepperElement({activeStep, setActiveStep, steps, form}:
       {activeStep === steps.length ? (
         <Fragment>
           <Stack sx={{display: 'flex', minHeight: '360px', pt: '20px', pb: '20px', alignItems: 'center', justifyContent: 'center'}}>
-            <Button href='/signup' color='secondary' variant='contained'>Зарегистрироваться</Button>
+            <Button type='submit' color='secondary' variant='contained'>Зарегистрироваться</Button>
           </Stack>
           <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
             <Box sx={{ flex: '1 1 auto' }} />
-            <Button onClick={handleReset}>Reset</Button>
+            <Button onClick={handleReset}>Сброс</Button>
           </Box>
         </Fragment>
       ) : (
@@ -113,12 +117,11 @@ export default function StepperElement({activeStep, setActiveStep, steps, form}:
                 Пропустить
               </Button>
             )}
-            <Button onClick={handleNext}>
+            <Button onClick={handleNext} disabled={disabled}>
               Далее
             </Button>
           </Box>
         </Fragment>
-
       )}
     </Box>
   );

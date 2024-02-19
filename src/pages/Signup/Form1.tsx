@@ -1,50 +1,32 @@
-import { Paper, Typography, Stack, Button } from "@mui/material"
+import FormContainer from "../../components/Form-elements/FormContainer"
+import { RadioGroupElement } from "../../components/Form-elements/RadioGroupElement"
 import { TextFieldElement } from "../../components/Form-elements/TextFieldElement"
-import { useForm, SubmitHandler, FieldValues } from "react-hook-form"
+import { FormProps } from "../../interfaces/FormProps"
 
-const defaultValues = {
-  username: "",
-  password: "",
-};
 
-function Form1() {
-  const { control, handleSubmit } = useForm<FieldValues>({defaultValues: defaultValues});
-
-  const onSubmit: SubmitHandler<FieldValues> = (data) => {
-    console.log(data);
-  }
+function Form1({formName, control, setIsNextBtnActive}: FormProps) {
   return (
-    <div>
-      <Paper component={'form'} onSubmit={handleSubmit(onSubmit)} elevation={12} sx={{display: 'flex', flexDirection: 'column', maxWidth: '300px', rowGap: '10px', p: '30px'}}>
-            <Typography align='center' variant='h4'>
-              Форма 1
-            </Typography>
-            <Stack direction={'column'}>
-              <TextFieldElement
-                type='text'
-                name={'username'}
-                label={'Имя пользователя'}
-                control={control}
-                required={true}
-                minLength={2}
-                maxLength={25}
-              />
-              <TextFieldElement
-                type='password'
-                name={'password'}
-                label={'Пароль'}
-                control={control}
-                required={true}
-                minLength={6}
-              />
-              <Button type={'submit'} variant={'contained'} color={'secondary'}>
-                Войти
-              </Button>
-            </Stack>
-            <Typography align='center' sx={{mt: '10px'}}>Ещё не зарегистрированы?</Typography>
-            <Button href='/signup' color='secondary'>Зарегистрироваться</Button>
-          </Paper>
-    </div>
+    <FormContainer formName={formName} control={control} setIsNextBtnActive={setIsNextBtnActive}>
+      <RadioGroupElement name='sex' control={control} required={true} />
+      <TextFieldElement
+        type={'text'}
+        name={'firstName'}
+        label={'Имя'}
+        control={control}
+        required={true}
+        minLength={2}
+        maxLength={25}
+      />
+      <TextFieldElement
+        type={'number'}
+        name={'age'}
+        label={'Возраст'}
+        control={control}
+        required={true}
+        min={18}
+        max={90}
+      />
+    </FormContainer>
   )
 }
 
