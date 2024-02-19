@@ -1,4 +1,5 @@
 import {useState, Fragment, Dispatch, SetStateAction, ReactNode} from 'react';
+import {UseFormReset, FieldValues} from 'react-hook-form'
 import Box from '@mui/material/Box';
 import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
@@ -12,7 +13,7 @@ interface StepperElementProps {
   setActiveStep: Dispatch<SetStateAction<number>>;
   steps: string[];
   form: ReactNode;
-  reset: <T>(values?: T | ResetAction<T>, options?: Record<string, boolean>) => void;
+  reset: UseFormReset<FieldValues>;
   disabled: boolean;
 }
 

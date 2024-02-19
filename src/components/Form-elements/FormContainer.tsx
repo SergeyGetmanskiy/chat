@@ -1,16 +1,18 @@
+import { useEffect } from "react"
 import { Paper, Typography, Stack } from "@mui/material"
 import { useFormState } from "react-hook-form"
-import { useEffect } from "react"
 
-function FormContainer({formName, control, setIsValid, children}) {
+import { FormProps } from "../../interfaces/FormProps";
+
+function FormContainer({formName, control, setIsNextBtnActive, children}: FormProps) {
   const { isValid } = useFormState({control});
   useEffect(() => {
     if(isValid) {
-      setIsValid(true);
+      setIsNextBtnActive(true);
     } else {
-      setIsValid(false);
+      setIsNextBtnActive(false);
     }
-  }, [isValid, setIsValid])
+  }, [isValid, setIsNextBtnActive])
   //useEffect(() => setIsValid(false), [])
   return (
     <div>

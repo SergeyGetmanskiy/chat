@@ -1,10 +1,12 @@
 import FormContainer from "../../components/Form-elements/FormContainer"
 import { RadioGroupElement } from "../../components/Form-elements/RadioGroupElement"
 import { TextFieldElement } from "../../components/Form-elements/TextFieldElement"
+import { FormProps } from "../../interfaces/FormProps"
 
-function Form1({formName, control, setIsValid}) {
+
+function Form1({formName, control, setIsNextBtnActive}: FormProps) {
   return (
-    <FormContainer formName={formName} control={control} setIsValid={setIsValid}>
+    <FormContainer formName={formName} control={control} setIsNextBtnActive={setIsNextBtnActive}>
       <RadioGroupElement name='sex' control={control} required={true} />
       <TextFieldElement
         type={'text'}

@@ -1,6 +1,6 @@
-import { useState } from 'react'
+import { useState, Dispatch, SetStateAction } from 'react'
 import { Paper, Stack, Typography } from '@mui/material'
-import { useForm, SubmitHandler, FieldValues } from "react-hook-form"
+import { useForm, SubmitHandler, Control, FieldValues } from "react-hook-form"
 
 import Background from '../../components/Background/Background'
 import StepperElement from '../../components/StepperElement/StepperElement'
@@ -20,29 +20,20 @@ const defaultValues = {
   password: "",
 };
 
-const steps = ['Кто ты ?', 'Где живешь ?', 'Твоё хобби', 'Придумай никнейм'];
-const forms = {
-  "1": Form1,
-  "2": Form2,
-  "3": Form3,
-  "4": Form4,
-}
+const steps = ['Кто ты ?', 'Где живешь ?', 'Твоё хобби', 'Никнейм и пароль'];
+const forms = [Form1, Form2, Form3, Form4]
 
 function Signup() {
-  const [isValid, setIsValid] = useState(false);
+  const [isNextBtnActive, setIsNextBtnActive] = useState(false);
   const [activeStep, setActiveStep] = useState(0);
   const { control, handleSubmit, reset } = useForm<FieldValues>({defaultValues: defaultValues, mode: 'onChange', reValidateMode: 'onSubmit'});
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
-    if(isValid){
     console.log(data);
-    } else {
-      console.log(isValid)
-    }
   }
-  const renderForm = (step: number, control, setIsValid) => {
+  const renderForm = (step: number, control: Control<FieldValues>, setIsNextBtnActive: Dispatch<SetStateAction<boolean>>)  => {
     if(step <= steps.length) {
-      const Form = forms[step]
-      return <Form formName={steps[step - 1]} control={control} setIsValid={setIsValid} />
+      const Form = forms[step - 1]
+      return <Form formName={steps[step - 1]} control={control} setIsNextBtnActive={setIsNextBtnActive} />
     } else {
       return null
     }
@@ -58,10 +49,10 @@ function Signup() {
             setActiveStep={setActiveStep}
             steps={steps}
             form={
-              renderForm(activeStep + 1, control, setIsValid)
+              renderForm(activeStep + 1, control, setIsNextBtnActive)
             }
             reset={reset}
-            disabled={!isValid}
+            disabled={!isNextBtnActive}
           />
         </Paper>
       </Stack>

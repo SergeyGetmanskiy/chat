@@ -2,7 +2,7 @@ import { Controller } from "react-hook-form";
 import { RadioGroup, Radio, FormControl, FormControlLabel, FormHelperText } from "@mui/material";
 import { FormInputProps } from "./FormInputProps";
 
-export const RadioGroupElement = ({ name, control, required }: FormInputProps) => {
+export const RadioGroupElement = ({ name, control, required=true }: FormInputProps) => {
   return (
     <Controller
       name={name}
@@ -22,7 +22,7 @@ export const RadioGroupElement = ({ name, control, required }: FormInputProps) =
             <FormControlLabel value="female" control={<Radio />} label="Женщина" />
             <FormControlLabel value="male" control={<Radio />} label="Мужчина" />
           </RadioGroup>
-          <FormHelperText>{error}</FormHelperText>
+          <FormHelperText>{error?.message}</FormHelperText>
         </FormControl>
       )}
     />
