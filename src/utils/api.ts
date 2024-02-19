@@ -14,8 +14,14 @@ interface SignUp {
 }
 
 export interface User {
-  name: string;
   username: string;
+  password: string;
+  firstName?: string;
+  sex?: string,
+  age?: number,
+  country?: string,
+  city?: string,
+  hobby?: string,
 }
 
 class AuthApi {
