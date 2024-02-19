@@ -2,9 +2,9 @@ import { TextFieldElement } from "../../components/Form-elements/TextFieldElemen
 import FormContainer from "../../components/Form-elements/FormContainer"
 import { FormProps } from "../../interfaces/FormProps"
 
-function Form3({formName, control, setIsNextBtnActive}: FormProps) {
+function Form3({formName, control}: FormProps) {
   return (
-    <FormContainer formName={formName} control={control} setIsNextBtnActive={setIsNextBtnActive}>
+    <FormContainer formName={formName} control={control}>
       <TextFieldElement
         type='text'
         name={'hobby'}
