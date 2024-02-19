@@ -4,9 +4,9 @@ import { TextFieldElement } from "../../components/Form-elements/TextFieldElemen
 import { FormProps } from "../../interfaces/FormProps"
 
 
-function Form1({formName, control, setIsNextBtnActive}: FormProps) {
+function Form1({formName, control}: FormProps) {
   return (
-    <FormContainer formName={formName} control={control} setIsNextBtnActive={setIsNextBtnActive}>
+    <FormContainer formName={formName} control={control}>
       <RadioGroupElement name='sex' control={control} required={true} />
       <TextFieldElement
         type={'text'}
