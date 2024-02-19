@@ -45,7 +45,13 @@ export const TextFieldElement = ({
           size="small"
           fullWidth
           variant="outlined"
-          sx={{mb: '10px'}}
+          sx={{'&.MuiTextField-root p': {
+            position: 'absolute',
+            bottom: '-20px',
+            left: '-15px',
+            width: 'max-content',
+          }, mb: '10px'
+        }}
         />
       )}
     />
